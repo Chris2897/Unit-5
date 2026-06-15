@@ -22,13 +22,13 @@ int leftscore,rightscore,timer;
 void setup() {
   size (800,600);
   textAlign(CENTER, CENTER);
- mode = GAME;
- leftx = 0;
+ mode = INTRO;
+ leftx = 50;
  lefty = height/2;
- leftd = 200;
- rightx = width;
+ leftd = 20;
+ rightx = width - 50;
  righty = height/2;
- rightd = 200;
+ rightd = 20;
  
  ballx = width/2;
  bally = height/2;
