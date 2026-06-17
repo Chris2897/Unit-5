@@ -1,73 +1,66 @@
 void game() {
-  background(0);
-  circle (leftx,lefty,leftd);
-  circle(rightx,righty,rightd);
+  background(0);  
+  
+  circle (x[0],y[0],100);
+   circle (x[1],y[1],100);
+    circle (x[2],y[2],100);
   
   
-  if (wkey == true) lefty = lefty - 5;
-  if (skey == true )lefty = lefty + 5;
-  if (upkey == true) righty = righty - 5;
-  if (downkey == true) righty = righty + 5;
-  fill(225);
-  stroke(225,0,0);
-  strokeWeight(4);
-  if (bally<=balld/2 || bally>=height-balld/2) {
-    vy = vy*-1;
+  
+  
+  
+  
+  
+  if (leftkey == true) bottomx = bottomx - 8;
+  if (rightkey == true) bottomx = bottomx + 8;
+  
+  rectMode(CENTER);
+  fill(255);
+  circle(bottomx, bottomy, bottomd);
+  
+  fill(255, 0, 0);  
+  ellipse(ballx, bally, balld, balld);
+  
+ 
+  ballx = ballx + vx;
+  bally = bally + vy;
+  
+  
+  if (ballx - balld/2 < 0) {
+    ballx = balld/2;
+    vx = vx * -1;
+  }
+  if (ballx + balld/2 > width) {
+    ballx = width - balld/2;
+    vx = vx * -1;
+  }
+  if (bally - balld/2 < 0) {
+    bally = balld/2;
+    vy = vy * -1;
   }
   
-  if (dist(ballx,bally,rightx,righty) < balld/2 + rightd) {
-    vx = (ballx - rightx)/10;
-    vy = (bally-righty)/10;
+ 
+ 
+if (dist(ballx, bally, bottomx, bottomy) < balld/2 + bottomd/2) {
+    vx = (ballx - bottomx)/10;
+    vy = (bally - bottomy)/10;
+}
+  
+
+  if (bally + balld/2 > height) {
+    mode = GAMEOVER;
   }
-if (dist(ballx,bally,leftx,lefty) < balld/2 + leftd) {
-  vx = (ballx-leftx)/10;
-  vy = (bally-lefty)/10;
-}
   
-   if (ballx< 0) {
-     rightscore = rightscore + 1;
-     
-   }
-  
-   if (lefty - leftd/2 < 0) lefty = leftd/2;
-  if (lefty + leftd/2 > height) lefty = height - leftd/2;
-  if (righty - rightd/2 < 0) righty = rightd/2;
-  if (righty + rightd/2 > height) righty = height - rightd/2;
-  
-  
-  
-  
-  
-  
-  
-  strokeWeight(5);
-  stroke(255);
-  line(width/2,0,width/2,height);
-  
-  textSize(50);
-  fill(0,255,0);
-  text(leftscore,width/4,100);
-  fill(255,0,0);
-  text(rightscore,3*width/4,100);
-  
-  
-  
-  
-  
-  circle(ballx,bally,balld);
-  
- ballx = ballx + vx;
-bally = bally + vy;
-
-
-
-if(bally < balld/2 || bally > height - balld/2){
-  vy = vy * -1;
-}
-  
+ 
+  if (bottomx - bottomd/2 < 0) bottomx = bottomd/2;
+  if (bottomx + bottomd/2 > width) bottomx = width - bottomd/2;
 }
 
 
-void gameClicks(){
+
+
+
+void gameClicks()  {
+  
   
 }
